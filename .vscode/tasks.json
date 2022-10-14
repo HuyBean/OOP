@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C++ build Single file",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-std=c++11",
+                "${file}",
+                "-pipe",
+                "-o",
+                "${fileDirname}${pathSeparator}${fileBasenameNoExtension}.exe"
+            ],
+            "group": {
+                "kind": "build",
+            }
+        },
+        {
+            "type": "shell",
+            "label": "C++ build Project",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-std=c++11",
+                "*.cpp",
+                "*.h",
+                "-pipe",
+                "-o",
+                "${fileBasenameNoExtension}.exe"
+            ],
+            "group": {
+                "kind": "build",
+            },
+            "options": {
+                "cwd": "${fileDirname}",
+            }
+        },
+    ]
+}
