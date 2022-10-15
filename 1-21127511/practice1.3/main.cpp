@@ -29,7 +29,6 @@ int main()
     doWithArray(arr, size, sortDecending);
     doWithArray(arr, size, showArray);
 
-     doWithArray(Arr, size, inputFractionArray);
-     doWithArray(arr, size, inputArray);
+
     return 0;
 }
