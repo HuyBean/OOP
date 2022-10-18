@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+
 struct Fraction
 {
     int nume;
