@@ -117,7 +117,6 @@ vector<int> findPalind(vector<int> Arr, int size)
     }
     return Temp;
 }
-
 vector<int> findPrime(vector<int> Arr, int size)
 {
     vector<int> Temp;
