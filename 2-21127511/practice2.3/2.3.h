@@ -2,34 +2,32 @@
 #define PRACTICE_2_3
 
 #include <iostream>
+#include <string>
+#include <cstring>
 using namespace std;
 
 class Student
 {
 private:
-    char* name;
+    string name;
     float Liter;
     float Math;
 
 public:
-    Student(char* N = " ", float L = 0, float M = 0);
+    Student(string N = " ", float L = 0, float M = 0);
     void input();
     void output();
 
-    char* getName();
+    char *getName();
     void setName();
     float getLit();
     void setLit();
     float getMath();
     void setMath();
 
-    template <class T>
-    void setAndGet(T (*oper)());
-
     float calculateGPA();
 
     char grade();
-    
 };
 
 #endif
