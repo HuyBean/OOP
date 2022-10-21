@@ -1,9 +1,14 @@
 #include "func.h"
 
+int generateNum(int start, int end)
+{
+    return rand() % (end - start + 1) + start;
+}
+
 // Print functions
 void printInstruction()
 {
-    cout << "Working with integer arrays from the keyboard.\n\n";
+    cout << "Working with randomly generated integers.\n\n";
     return;
 }
 
@@ -22,79 +27,28 @@ void printVector(vector<int> Arr, int size)
     return;
 }
 
-// Input and active functions
-void inputRange(string &Key)
-{
-    bool ok = false;
-    while (ok == false)
-    {
-        cout << "Please enter an integer in the range of [5, 10]: ";
-        getline(cin, Key);
-        ok = processingCommand(Key, 10, 5);
-    }
-    cout << "\n\n";
-    return;
-}
+// Input functions
 
-void inputNum(string Key, vector<int> &Arr)
+void getNum(vector<int> &Arr, int &size)
 {
-    int number = stoi(Key);
-    bool ok = false;
-    string tmp;
+    srand(time(NULL));
+    size = generateNum(5, 10);
     string Inte = "integer";
-    cout << "Please enter " << number << " ";
-    supportOutput(number, Inte);
-    cout << ", each in the range of [1, 100]: \n";
-    for (int i = 0; i < number; i++)
+    cout << "Generating " << size << " ";
+    supportOutput(size, Inte);
+    for (int i = 0; i < size; i++)
     {
-        supportPrint(i);
-        getline(cin, tmp);
-        ok = processingCommand(tmp, 100, 1);
-        while (ok == false)
-        {
-            supportPrint(i);
-            getline(cin, tmp);
-            ok = processingCommand(tmp, 100, 1);
-        }
-        if (ok == true)
-        {
-            Arr.push_back(stoi(tmp));
-        }
+        Arr.push_back(generateNum(10, 100));
     }
+    cout << ": ";
+    Arr.resize(size);
+    printVector(Arr, size);
     cout << "\n\n";
     return;
 }
-
-// Information processing functions
-bool processingCommand(string Key, int upperBound, int lowerBound)
-{
-    if (Key.size() == 0)
-    {
-        cout << "Error: Input string cannot be empty.\n";
-        return false;
-    }
-    if (!isNumber(Key))
-    {
-        cout << "Error: Invalid input format.\n";
-        return false;
-    }
-    if (isNumber(Key) == true)
-    {
-        int number = stoi(Key);
-        if (number < lowerBound || number > upperBound)
-        {
-            cout << "Error: The integer must be in the range of [" << lowerBound << ", " << upperBound << "]\n";
-            return false;
-        }
-    }
-    return true;
-}
-
 // Output result function
-void Output(string &Key, vector<int> &Arr)
+void Output(vector<int> Arr, int size)
 {
-    vector<int> Prime, Odd, Even, Palind;
-    int number = stoi(Key);
     string Inte = "integer";
     string Num = "number";
     string od = "odd";
@@ -102,25 +56,15 @@ void Output(string &Key, vector<int> &Arr)
     string pal = "palindrome";
     string pri = "prime";
 
-    cout << "You have entered " << number << " ";
-    supportOutput(number, Inte);
-    cout << ": ";
-    printVector(Arr, number);
-
-    doFind(Arr, number, od, Num, findOdd);
-    doFind(Arr, number, eve, Num, findOdd);
-    doFind(Arr, number, pal, Num, findOdd);
-    doFind(Arr, number, pri, Num, findOdd);
+    doFind(Arr, size, od, Num, findOdd);
+    doFind(Arr, size, eve, Num, findEven);
+    doFind(Arr, size, pal, Num, findPalind);
+    doFind(Arr, size, pri, Num, findPrime);
 
     return;
 }
 
 // Some supporting functions
-void supportPrint(int number)
-{
-    cout << " The [" << number << "] integer: ";
-}
-
 void supportOutput(int number, const string tmp)
 {
     if (number >= 2)
@@ -194,6 +138,7 @@ void doFind(vector<int> Arr, int size, string tmp, string tmp2, vector<int> (*cr
     supportOutput(vFind.size(), tmp2);
     cout << ": ";
     printVector(vFind, vFind.size());
+    cout << "\n";
     return;
 }
 // Checking (collapse) functions
@@ -219,18 +164,6 @@ bool checkPrime(int num)
     for (int i = 2; i <= num - 1; i++)
     {
         if (num % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool isNumber(string Key)
-{
-    for (char const &Character : Key)
-    {
-        if (isdigit(Character) == 0)
         {
             return false;
         }

@@ -93,7 +93,6 @@ bool processingCommand(string Key, int upperBound, int lowerBound)
 // Output result function
 void Output(string &Key, vector<int> &Arr)
 {
-    vector<int> Prime, Odd, Even, Palind;
     int number = stoi(Key);
     string Inte = "integer";
     string Num = "number";
@@ -108,9 +107,9 @@ void Output(string &Key, vector<int> &Arr)
     printVector(Arr, number);
 
     doFind(Arr, number, od, Num, findOdd);
-    doFind(Arr, number, eve, Num, findOdd);
-    doFind(Arr, number, pal, Num, findOdd);
-    doFind(Arr, number, pri, Num, findOdd);
+    doFind(Arr, number, eve, Num, findEven);
+    doFind(Arr, number, pal, Num, findPalind);
+    doFind(Arr, number, pri, Num, findPrime);
 
     return;
 }

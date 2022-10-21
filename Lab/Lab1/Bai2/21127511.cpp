@@ -6,15 +6,13 @@ int main()
 {
     // Declare 
     vector<int> Array;
-    string Key;
+    int size = 0;
 
     // Perform
     printInstruction();
-
-    inputRange(Key);
-    inputNum(Key, Array);
-
-    Output(Key, Array);
-
+    getNum(Array, size);
+    //Array.resize(size);
+    Output(Array, size);
+    system("pause");
     return 0;
 }
