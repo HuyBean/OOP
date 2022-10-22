@@ -2,16 +2,17 @@
 #define PRACTICE_2_4
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Array
 {
 private:
     int Size;
-    int* Ele;
+    vector<int> Ele;
 
 public:
-    Array(int S = 0, int* E = 0);
+    Array(int S = 0, vector<int> E = {0});
     void input();
     void output();
     int getSize();
@@ -20,10 +21,9 @@ public:
     void setElement(int Index);
     int find(int);
 
-    void sort(void (*oper)());
-    void sortAscending();
-    void sortDecending();
-
+    void sort(bool (*oper)(int, int));
 };
+    bool sortAscending(int, int);
+    bool sortDecending(int, int);
 
 #endif

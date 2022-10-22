@@ -2,6 +2,7 @@
 #define PRACTICE_2_2
 
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 class Monomial
@@ -11,7 +12,7 @@ private:
     int Expo;
 
 public:
-    Monomial(int C = 0, int E = 1);
+    Monomial(int C = 0, int E = 0);
     void input();
     void output();
     int getCoef();
