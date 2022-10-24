@@ -22,7 +22,7 @@ void Array::input()
 
 void Array::output()
 {
-    cout << "This array has " << this->Size << "element(s): ";
+    cout << "This array has " << this->Size << " element(s): ";
     for (int i = 0; i < this->Size; i++)
     {
         cout << this->Ele[i] << " ";
