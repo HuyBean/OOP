@@ -6,12 +6,16 @@ using namespace std;
 
 class Fraction
 {
-    private:
-        int m_num;
-        int m_den;
-    public:
-        Fraction(int N = 0, int den = 1);
-        Fraction(const Fraction &frac);
+private:
+    int m_num;
+    int m_den;
+
+public:
+    Fraction();
+    Fraction(int N = 0, int D = 1);
+    Fraction(int Num, int Den);
+    Fraction(int);
+    Fraction(const Fraction &frac);
 };
 
 #endif
