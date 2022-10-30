@@ -8,15 +8,53 @@ template <class T>
 class Array
 {
 private:
-    T *arr;
     int m_size;
+    T *arr;
 
 public:
-    Array() { this->arr = 0; };
-    Array(int);
-    Array(int, int[]);
-    Array(const Array &array);
-    ~Array() { delete[] arr; };
+    Array();
+    Array(T);
+    Array(int, T[]);
+    Array(const Array<T> &array);
+    ~Array();
 };
 
+template <class T>
+Array<T>::Array()
+{
+    this->m_size = 0;
+    this->arr = 0;
+}
+
+template <class T>
+Array<T>::Array(T Size)
+{
+    this->m_size = Size;
+    memset(this->arr, 0, this->m_size);
+}
+
+template <class T>
+Array<T>::Array(int Size, T Arr[])
+{
+    this->m_size = Size;
+    this->arr = Arr;
+}
+
+template <class T>
+Array<T>::Array(const Array<T> &array)
+{
+    *this = array;
+}
+
+template <class T>
+Array<T>::~Array()
+{
+    this->m_size = 0;
+}
+
+// template <class T>
+// Array<T>::Population()
+// {
+
+// }
 #endif
