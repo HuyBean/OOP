@@ -17,6 +17,7 @@ public:
     Array(int, T[]);
     Array(const Array<T> &array);
     ~Array();
+    void output();
 };
 
 template <class T>
@@ -57,4 +58,10 @@ Array<T>::~Array()
 // {
 
 // }
+
+template <class T>
+void Array<T>::output()
+{
+    cout << "Hello \n";
+}
 #endif

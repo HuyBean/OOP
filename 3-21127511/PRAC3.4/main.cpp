@@ -6,5 +6,8 @@ int main()
     Array<int> Arr();
     Array<float> Arr1(5, array);
     Array<float> Arr2(Arr1);
+
+    Arr2.output();    
+    Arr1.~Array();
     return 0;
 }
