@@ -10,27 +10,30 @@ using namespace std;
 class Monomial
 {
 private:
-    int m_coef;
-    int m_expo;
+    double m_coef;
+    double m_expo;
 
 public:
     Monomial();
     Monomial(int, int);
-    bool operator>(Monomial);
-    bool operator<(Monomial);
-    bool operator==(Monomial);
-    bool operator>=(Monomial);
-    bool operator<=(Monomial);
-    bool operator!=(Monomial);
+    Monomial operator+(const Monomial &);
+    Monomial operator*(const Monomial &);
+    bool operator>(const Monomial &);
+    bool operator<(const Monomial &);
+    bool operator==(const Monomial &);
+    bool operator>=(const Monomial &);
+    bool operator<=(const Monomial &);
+    bool operator!=(const Monomial &);
+    Monomial &operator=(Monomial);
+    Monomial &operator+=(Monomial);
+    Monomial &operator*=(Monomial);
+    Monomial &operator++();
+    Monomial operator++(int);
+    Monomial &operator--();
+    Monomial operator--(int);
+    Monomial &operator!();
+    friend ostream &operator<<(ostream &, const Monomial &);
+    friend istream &operator>>(istream &, Monomial &);
 };
-Monomial::Monomial()
-{
-    this->m_coef = 1;
-    this->m_expo = 1;
-}
-Monomial::Monomial(int C, int E)
-{
-    this->m_coef = C;
-    this->m_expo = E;
-}
+
 #endif
