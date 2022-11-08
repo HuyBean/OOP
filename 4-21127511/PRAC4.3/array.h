@@ -17,27 +17,35 @@ public:
     Array();
     Array(int);
     Array(int, T Arr);
-    ~Array();
+    ~Array()
+    {
+        if (m_arr)
+        {
+            delete[] this->m_arr;
+        }
+    }
     Array &operator=(Array);
     T &operator[](int);
     operator T *();
-    friend ostream &operator<<(ostream &out, const Array &Arr);
-    friend istream &operator>>(istream &in, Array &Arr);
+
+    template <class U>
+    friend ostream &operator<<(ostream &out, const Array<U> &Arr);
+
+    template <class U>
+    friend istream &operator>>(istream &in, Array<U> &Arr);
 };
 template <class T>
 Array<T>::Array()
 {
     this->m_size = 0;
-    // std::fill(this->m_arr[0], this->m_arr[this->m_size - 1], 0);
+    this->m_arr = NULL;
 }
 template <class T>
 Array<T>::Array(int size)
 {
     this->m_size = size;
-    for (int i = 0; i < this->m_size; i++)
-    {
-        this->m_arr[i] = 0;
-    }
+    this->m_arr = new T[size];
+    memset(this->m_arr, 0, size);
 }
 template <class T>
 Array<T>::Array(int size, T Arr)
@@ -52,8 +60,8 @@ template <class T>
 Array<T> &Array<T>::operator=(Array Arr)
 {
     this->m_size = Arr.m_size;
-    this->m_arr = new T[this.size];
-    for (int i = 0; i < this->m_size; i++)
+    this->m_arr = new T[Arr.m_size];
+    for (int i = 0; i < Arr.m_size; i++)
     {
         this->m_arr[i] = Arr.m_arr[i];
     }
@@ -73,8 +81,8 @@ Array<T>::operator T *()
 }
 
 // Input / Output
-template <class T>
-ostream &operator<<(ostream &out, const Array<T> &Arr)
+template <class U>
+ostream &operator<<(ostream &out, const Array<U> &Arr)
 {
     for (int i = 0; i < Arr.m_size; i++)
     {
@@ -88,21 +96,18 @@ ostream &operator<<(ostream &out, const Array<T> &Arr)
     return out;
 }
 
-template <class T>
-istream &operator>>(istream &in, Array<T> &Arr)
+template <class U>
+istream &operator>>(istream &in, Array<U> &Arr)
 {
     cout << "Please input the array size: ";
     in >> Arr.m_size;
     cout << "Please input " << Arr.m_size << " element(s): ";
+    Arr.m_arr = new U[Arr.m_size];
     for (int i = 0; i < Arr.m_size; i++)
     {
         in >> Arr.m_arr[i];
     }
     return in;
 }
-template <class T>
-Array<T>::~Array()
-{
-    delete[] this->m_arr;
-}
+
 #endif
