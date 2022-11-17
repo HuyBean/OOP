@@ -23,7 +23,7 @@
             "command": "g++",
             "args": [
                 "-g",
-                "-std=c++11",
+                "-std=c++17",
                 "*.cpp",
                 "*.h",
                 "-pipe",

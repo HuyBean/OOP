@@ -1,0 +1,1 @@
+Product ID=10, Name=HuyBean, Price=10000000

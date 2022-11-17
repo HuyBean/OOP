@@ -66,6 +66,9 @@ Array<T> &Array<T>::operator=(Array Arr)
         this->m_arr[i] = Arr.m_arr[i];
     }
     return *this;
+    // if(this == &Arr) return *this;
+    // swap(*this,Arr);
+    // return *this;
 }
 // Array indexer[]
 template <class T>

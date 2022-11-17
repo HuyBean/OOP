@@ -1,0 +1,1 @@
+Product ID=1, Name=Dell XPS 9560, Price=23000000

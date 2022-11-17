@@ -1,0 +1,1 @@
+Product ID=6, Name=Tester, Price=2300000

@@ -1,0 +1,1 @@
+Product ID=6, Name=Dell80, Price= 9000

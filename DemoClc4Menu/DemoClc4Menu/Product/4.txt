@@ -1,0 +1,1 @@
+Product ID=4, Name=Asus Duo 16, Price=23000000
