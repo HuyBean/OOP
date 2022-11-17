@@ -10,15 +10,6 @@
 #include <sstream>
 using namespace std;
 
-namespace Utils
-{
-    class String
-    {
-    public:
-        static vector<string> splitToken(string, string);
-    };
-}
-
 
 class Employee
 {
@@ -31,11 +22,12 @@ private:
 public:
     Employee();
     Employee(int, string, int, int);
+    Employee(const Employee& other);
     string toString();
     int getSalary();
-    Employee Read(const char* fileName);
+    void Read(ifstream&);
 };
-Employee parse(string data);
+
 class Data
 {
 private:
@@ -46,9 +38,20 @@ public:
     Data();
     Data(const char *, vector<Employee>, int);
     void readFile();
-    void writeFile();
     void Sort();
-    void printOut(vector<Employee>);
+    void printOut();
 };
+
+void convert(int n, int count = 0);
+Employee parse(string data);
+
+// namespace Utils
+// {
+//     class String
+//     {
+//     public:
+//         static vector<string> splitToken(string, string);
+//     };
+// }
 
 #endif

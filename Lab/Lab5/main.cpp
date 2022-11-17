@@ -7,7 +7,7 @@ int main()
     Data D(fileName,Em, 0);
     D.readFile();
     D.Sort();
-    D.printOut(Tmp);
+    D.printOut();
     system("pause");
     return 0;
 }
