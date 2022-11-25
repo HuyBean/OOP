@@ -5,6 +5,7 @@
 #include <string>
 #include <cstring>
 #include <vector>
+#include <math.h>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ class Account
 private:
     float m_balance;
 
-protected:    
+protected:
     void setBalance(float balance)
     {
         m_balance = balance;
@@ -69,7 +70,7 @@ public:
     }
     float calInterest()
     {
-        return Account::getBalance() * (m_rate * m_duration / 12);
+        return Account::getBalance() * (pow(1 + m_rate * (m_period / 12.0), m_duration / m_period) - 1);
     }
     void deposit(float money)
     {
@@ -80,13 +81,16 @@ public:
     void withdraw(float money)
     {
         float interest = calInterest();
-        Account::withdraw(money - interest);
-        m_duration = 0;
+        if (money <= Account::getBalance() + interest)
+        {
+            Account::withdraw(money - interest);
+            m_duration = 0;
+        }
     }
     void increaseDuration()
     {
         m_duration += 1;
-        m_period += 1;
     }
 };
+
 #endif
