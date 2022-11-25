@@ -6,47 +6,61 @@ using namespace std;
 
 class Vehicle
 {
-private:
+protected:
     float m_weight;
     float m_fuel;
-    float m_distance;
+    float m_consume;
+    float m_consume_per_100_km;
 
 protected:
-    void setVehicle(float w, float f, float d)
+    void setVehicle(float w, float f)
     {
         m_weight = w;
         m_fuel = f;
-        m_distance = d;
     }
 
 public:
     Vehicle()
     {
-        m_distance = 0;
         m_fuel = 0;
         m_weight = 0;
     }
-    Vehicle(float w, float f, float d)
+    Vehicle(float w, float f)
     {
         m_weight = w;
         m_fuel = f;
-        m_distance = d;
     }
     void addWeight(float w)
     {
         m_weight += w;
     }
+    void removeWeight(float w)
+    {
+        if (m_weight >= w)
+        {
+            m_weight -= w;
+        }
+    }
     void addFuel(float f)
     {
-        m_fuel = f;
+        m_fuel += f;
     }
-    void runVehicle(float km)
+    float getCurrentFuel()
     {
-        m_distance += km;
+        return m_fuel;
     }
-    float getCurrentFuel(float consume_per_100_km, float additional_goods_weight_per_lit)
+    bool run(float km)
     {
-        return m_fuel - ((m_distance * consume_per_100_km / 100) + (m_weight / additional_goods_weight_per_lit));
+        float fuel = km * (m_consume + km * m_consume_per_100_km);
+        if (fuel > m_fuel)
+        {
+            return false;
+        }
+        else
+        {
+            m_fuel -= fuel;
+            return true;
+        }
     }
 };
 
@@ -56,14 +70,14 @@ public:
     Truck()
     {
         Vehicle();
+        m_consume = 20 / 100;
+        m_consume_per_100_km = 1 / 1000 * 100;
     }
-    Truck(float w, float f, float d)
+    Truck(float w, float f)
     {
-        Vehicle(w, f, d);
-    }
-    float getCurrentFuel(float consume, float more)
-    {
-        return Vehicle::getCurrentFuel(consume, more);
+        Vehicle(w, f);
+        m_consume = 20 / 100;
+        m_consume_per_100_km = 1 / 1000 * 100;
     }
 };
 
@@ -73,14 +87,14 @@ public:
     Motorbike()
     {
         Vehicle();
+        m_consume = 2 / 100;
+        m_consume_per_100_km = 0.1 / 10 * 100;
     }
-    Motorbike(float w, float f, float d)
+    Motorbike(float w, float f)
     {
-        Vehicle(w, f, d);
-    }
-    float getCurrentFuel(float consume, float more)
-    {
-        return Vehicle::getCurrentFuel(consume, more);
+        Vehicle(w, f);
+        m_consume = 2 / 100;
+        m_consume_per_100_km = 0.1 / 10 * 100;
     }
 };
 #endif
