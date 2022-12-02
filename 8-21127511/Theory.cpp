@@ -4,17 +4,16 @@ using namespace std;
 class Animal
 {
 public:
-    virtual void talk()
-    {
-        cout << "\nDon't talk\n";
-    }
-    //virtual void talk() = 0;
+    // virtual void talk()
+    // {
+    //     cout << "\nDon't talk\n";
+    // }
+    virtual void talk() = 0;
 };
 
 class Cat : public Animal
 {
 public:
-
     void talk()
     {
         cout << "\nMeo meo meo\n";
@@ -30,26 +29,24 @@ public:
     }
 };
 
-void doSomething(Animal p)
-{
-    p.talk();
-    return;
-}
-
 // void doSomething(Animal *p)
 // {
 //     p->talk();
 //     return;
 // }
 
+void doSomething(Animal *p)
+{
+    p->talk();
+    return;
+}
+
 int main()
 {
-    Animal a;
     Cat c;
     Dog d;
-    doSomething(a); // Don't talk
-    doSomething(c); // Don't talk
-    doSomething(d);
+    doSomething(&c); // Don't talk
+    doSomething(&d);
 
     // Animal *p;
     // // p = &a;
@@ -72,5 +69,4 @@ int main()
     // p = new Cat;
     // p->talk();
     return 0;
-
 }
