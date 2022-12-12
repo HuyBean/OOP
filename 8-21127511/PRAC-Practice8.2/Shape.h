@@ -1,5 +1,5 @@
+#pragma once
 #include "Point.h"
-#pragma 1
 
 class Shape
 {

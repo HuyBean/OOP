@@ -1,6 +1,8 @@
 #ifndef ISHAPE_H
 #define ISHAPE_H
 #include "Object.h"
+#include <sstream>
+#include <iomanip>
 
 class IShape : public Object
 {

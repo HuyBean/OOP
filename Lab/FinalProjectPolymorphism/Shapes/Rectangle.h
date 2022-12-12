@@ -1,4 +1,4 @@
-#pragma 1
+#pragma once
 #include "IShape.h"
 // #include "IParsable.h"
 
@@ -34,7 +34,19 @@ public:
     }
     string toString()
     {
-        string res = "Rectangle w=";
-        return res += to_string(this->_width) + ", h=" + to_string(this->_height);
+        stringstream ss;
+        int set = 0;
+        if (this->_width != (int)this->_width)
+        {
+            set = 2;
+        }
+        ss << "Rectangle w=" << fixed << setprecision(set) << this->_width;
+        set = 0;
+        if (this->_height != (int)this->_height)
+        {
+            set = 2;
+        }
+        ss << setprecision(set) << ", h =" << this->_height;
+        return ss.str();
     }
 };

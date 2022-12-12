@@ -29,7 +29,13 @@ public:
     }
     string toString()
     {
-        string res = "Circle r=";
-        return res += to_string(this->_radius);
+        stringstream ss;
+        int set = 0;
+        if(this->_radius != (int) this->_radius)
+        {
+            set = 2;
+        }
+        ss << "Circle r= "<<fixed<<setprecision(set)<<this->_radius;
+        return ss.str();
     }
 };

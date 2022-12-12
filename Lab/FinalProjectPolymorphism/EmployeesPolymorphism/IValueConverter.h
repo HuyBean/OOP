@@ -1,7 +1,7 @@
 #ifndef IVALUE_CONVERTER
 #define IVALUE_CONVERTER
 
-#include "Entity/Object.h"
+#include "Object.h"
 
 class IValueConverter: public Object
 {

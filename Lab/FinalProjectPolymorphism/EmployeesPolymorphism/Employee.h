@@ -2,11 +2,12 @@
 #define EMPLOYEE
 
 #include "Object.h"
+#include "IntegerToCurrencyConverter.h"
 
 class Employee : public Object
 {
     public:
-    virtual int salary() = 0;
+    virtual string salary() = 0;
     virtual string toString() = 0;
 };
 

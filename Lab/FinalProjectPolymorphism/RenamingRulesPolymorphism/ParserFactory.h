@@ -1,6 +1,10 @@
-#pragma once
+#ifndef PARSER_FACTORY_RENAME
+#define PARSER_FACTORY_RENAME
+
 #include "Object.h"
 #include "IParsable.h"
+
+#include <map>
 
 
 // Let use dependency injection
@@ -20,3 +24,5 @@ public:
         return _container[type]; // Ask container to resolve the needed type
     }
 };
+
+#endif

@@ -1,10 +1,10 @@
-#include "Business/ParserFactory.h"
-#include "Business/DailyEmployeeParser.h"
-#include "Business/ManagerParser.h"
-#include "Business/ProductEmployeeParser.h"
-#include "Entity/ProductEmployee.h"
-#include "Entity/DailyEmployee.h"
-#include "Entity/Manager.h"
+#include "ParserFactory.h"
+#include "DailyEmployeeParser.h"
+#include "ManagerParser.h"
+#include "ProductEmployeeParser.h"
+#include "ProductEmployee.h"
+#include "DailyEmployee.h"
+#include "Manager.h"
 
 int main()
 {

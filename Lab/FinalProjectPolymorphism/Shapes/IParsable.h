@@ -1,4 +1,4 @@
-#pragma 1
+#pragma once
 #include "Object.h"
 #include "Rectangle.h"
 #include "Circle.h"
@@ -28,8 +28,8 @@ public:
     }
     IShape *parse(string token1 = "", string token2 = "")
     {
-        RecPar = Rectangle(findNum(token1), findNum(token2));
-        return &RecPar;
+        Rectangle *r = new Rectangle(findNum(token1), findNum(token2));
+        return r;
     }
     string toString()
     {
@@ -53,9 +53,8 @@ public:
     }
     IShape *parse(string token1 = "", string token2 = "")
     {
-        Square Squa(findNum(token1));
-        SquaPar = Squa;
-        return &SquaPar;
+        Square *s = new Square(findNum(token1));
+        return s;
     }
     string toString()
     {
@@ -79,8 +78,8 @@ public:
     }
     IShape *parse(string token1 = "", string token2 = "")
     {
-        CirPar = Circle(findNum(token1));
-        return &CirPar;
+        Circle *c = new Circle(findNum(token1));
+        return c;
     }
     string toString()
     {

@@ -1,4 +1,4 @@
-#pragma 1
+#pragma once
 #include "IShape.h"
 // #include "IParsable.h"
 
@@ -30,7 +30,13 @@ public:
     }
     string toString()
     {
-        string res = "Square a=";
-        return res += to_string(this->_a);
+        stringstream ss;
+        int set = 0;
+        if (this->_a != (int)this->_a)
+        {
+            set = 2;
+        }
+        ss << "Square a= " << fixed << setprecision(set) << this->_a;
+        return ss.str();
     }
 };
