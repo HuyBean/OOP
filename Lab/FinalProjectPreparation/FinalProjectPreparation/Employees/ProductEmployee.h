@@ -7,15 +7,6 @@ private:
     float payment;
 
 public:
-    ProductEmployee(int p, float pay)
-    {
-        this->product = p;
-        this->payment = pay;
-    }
-    string salary()
-    {
-        float sal = this->product * this->payment;
-        string res = convert(sal);
-        return res;
-    }
+    ProductEmployee(int p, float pay);
+    string salary();
 };

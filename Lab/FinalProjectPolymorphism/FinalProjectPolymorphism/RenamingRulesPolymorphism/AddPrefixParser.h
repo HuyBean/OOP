@@ -10,23 +10,10 @@ private:
     AddPrefix AP;
 
 public:
-    AddPrefixParser()
-    {
-        AP = AddPrefix();
-    }
-    string parsedObjectName()
-    {
-        return "AddPrefix";
-    }
-    IRule* parse(string token)
-    {
-        AddPrefix * ap = new AddPrefix(token);
-        return ap;
-    }
-    string toString()
-    {
-        return "AddPrefix";
-    }
+    AddPrefixParser();
+    string parsedObjectName();
+    IRule* parse(string token);
+    string toString();
 };
 
 #endif

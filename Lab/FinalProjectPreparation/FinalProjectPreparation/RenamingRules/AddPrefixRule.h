@@ -6,16 +6,7 @@ private:
     string prefix;
 
 public:
-    AddPrefixRule()
-    {
-        this->prefix = " ";
-    }
-    void setPrefix(string Prefix)
-    {
-        this->prefix = Prefix;
-    }
-    string Rename(string origin)
-    {
-        return prefix + " " + origin;
-    }
+    AddPrefixRule();
+    void setPrefix(string Prefix);
+    string Rename(string origin);
 };

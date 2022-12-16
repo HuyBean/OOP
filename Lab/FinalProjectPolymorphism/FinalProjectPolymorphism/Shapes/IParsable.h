@@ -1,4 +1,7 @@
-#pragma once
+#ifndef IPARSABLE
+#define IPARSABLE
+
+
 #include "Object.h"
 #include "Rectangle.h"
 #include "Circle.h"
@@ -10,8 +13,9 @@ class IParsable : public Object
 public:
     virtual IShape *parse(string token1 = "", string token2 = "") = 0;
     virtual string parsedObjectName() = 0;
-    virtual std::string toString() = 0;
+    virtual string toString() = 0;
 };
+
 class RectangleParser : public IParsable
 {
 private:
@@ -86,3 +90,5 @@ public:
         return "Circle";
     }
 };
+
+#endif

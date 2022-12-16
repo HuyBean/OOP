@@ -10,26 +10,10 @@ private:
     ProductEmployee ProEmp;
 
 public:
-    ProductEmployeeParser()
-    {
-        ProEmp = ProductEmployee();
-    }
-    Employee *parse(string token)
-    {
-        vector<string> sub = Utils::String::split(token, " ");
-        ProductEmployee *pe = new ProductEmployee(findNum(sub[0]), findNum(sub[1]));
-        return pe;
-    }
-
-    string toString()
-    {
-        return "ProductEmployeeParser";
-    }
-
-    string parsedObjectName()
-    {
-        return "ProductEmployee";
-    }
+    ProductEmployeeParser();
+    Employee *parse(string token);
+    string toString();
+    string parsedObjectName();
 };
 
 #endif

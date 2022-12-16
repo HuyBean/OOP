@@ -10,23 +10,10 @@ private:
     OneSpaceOnly OSO;
 
 public:
-    OneSpaceOnlyParser()
-    {
-        OSO = OneSpaceOnly();
-    }
-    string parsedObjectName()
-    {
-        return "OneSpaceOnly";
-    }
-    IRule *parse(string name)
-    {
-        OneSpaceOnly * One = new OneSpaceOnly();
-        return One;
-    }
-    string toString()
-    {
-        return "OneSpaceOnly";
-    }
+    OneSpaceOnlyParser();
+    string parsedObjectName();
+    IRule *parse(string name);
+    string toString();
 };
 
 #endif

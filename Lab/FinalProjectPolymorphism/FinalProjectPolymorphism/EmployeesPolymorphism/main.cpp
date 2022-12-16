@@ -38,8 +38,10 @@ int main()
         employees.push_back(employee);
     }
 
+    IntegerToCurrencyConverter converter;
+
     for (auto employee : employees)
     {
-        cout << employee->toString() << ", salary:" << employee->salary() << endl;
+        cout << employee->toString() << ", salary:" << converter.convert(employee->salary()) << endl;
     }
 }

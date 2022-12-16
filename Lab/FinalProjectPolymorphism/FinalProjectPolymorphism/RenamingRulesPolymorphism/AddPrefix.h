@@ -9,26 +9,11 @@ private:
     string _prefix;
 
 public:
-    AddPrefix()
-    {
-        _prefix = "";
-    }
-    AddPrefix(string pre)
-    {
-        this->_prefix = pre;
-    }
-    AddPrefix(const AddPrefix &Add)
-    {
-        this->_prefix = Add._prefix;
-    }
-    string toString()
-    {
-        return "prefix";
-    }
-    string rename(string name)
-    {
-        return this->_prefix + " " + name;
-    }
+    AddPrefix();
+    AddPrefix(string pre);
+    AddPrefix(const AddPrefix &Add);
+    string toString();
+    string rename(string name);
 };
 
 #endif

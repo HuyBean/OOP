@@ -7,15 +7,6 @@ private:
     float payment;
 
 public:
-    Manager(int p, float pay)
-    {
-        this->managed = p;
-        this->payment = pay;
-    }
-    string salary()
-    {
-        float sal = this->managed * 500.000 + this->payment;
-        string res = convert(sal);
-        return res;
-    }
+    Manager(int p, float pay);
+    string salary();
 };

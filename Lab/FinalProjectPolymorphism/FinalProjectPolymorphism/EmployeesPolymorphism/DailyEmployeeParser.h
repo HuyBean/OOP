@@ -10,25 +10,10 @@ private:
     DailyEmployee DE;
 
 public:
-    DailyEmployeeParser()
-    {
-        DE = DailyEmployee();
-    }
-    Employee *parse(string token)
-    {
-        vector<string> sub = Utils::String::split(token, " ");
-        DailyEmployee *d = new DailyEmployee(findNum(sub[0]), findNum(sub[1]));
-        return d;
-    }
-
-    string toString()
-    {
-        return "DailyEmployeeParser";
-    }
-    string parsedObjectName()
-    {
-        return "DailyEmployee";
-    }
+    DailyEmployeeParser();
+    Employee *parse(string token);
+    string toString();
+    string parsedObjectName();
 };
 
 #endif

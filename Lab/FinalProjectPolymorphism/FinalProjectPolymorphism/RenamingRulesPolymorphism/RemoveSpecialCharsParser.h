@@ -11,31 +11,10 @@ private:
     RemoveSpecialChars AP;
 
 public:
-    RemoveSpecialCharsParser()
-    {
-        vector<char> vChar;
-        AP = RemoveSpecialChars(vChar);
-    }
-    string parsedObjectName()
-    {
-        return "RemoveSpecialChars";
-    }
-    IRule *parse(string token)
-    {
-        vector<string> sub = Utils::String::split(token, "=");
-        vector<char> vToken;
-        vToken.resize(sub[1].length());
-        for (int i = 0; i < sub[1].length(); i++)
-        {
-            vToken[i] = sub[1][i];
-        }
-        RemoveSpecialChars *ap = new RemoveSpecialChars(vToken);
-        return ap;
-    }
-    string toString()
-    {
-        return "RemoveSpecialCharsParser";
-    }
+    RemoveSpecialCharsParser();
+    string parsedObjectName();
+    IRule *parse(string token);
+    string toString();
 };
 
 #endif
