@@ -6,6 +6,8 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
+#include <math.h>
 
 using namespace std;
 
