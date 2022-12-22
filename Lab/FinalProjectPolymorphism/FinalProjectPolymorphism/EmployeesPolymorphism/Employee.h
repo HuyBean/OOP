@@ -6,7 +6,7 @@
 
 class Employee : public Object
 {
-    public:
+public:
     virtual string salary() = 0;
     virtual string toString() = 0;
 };
